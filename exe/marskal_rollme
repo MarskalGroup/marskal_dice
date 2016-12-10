@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'marskal_dice'
+
+begin
+    params = eval("#{ARGV[0]}")
+    if params.nil?
+        puts MarskalDice.new().roll
+    else
+        puts MarskalDice.new(params).roll
+    end
+
+    exit!
+
+rescue Exception => error
+    puts "\nError: #{error.to_s}"
+    puts "\n\nUsage Examples:"
+    puts "\tmarskal_roll_dice  \"{sides: 1, number_of_dice: 4}\""
+    puts "\tmarskal_roll_dice"
+end
